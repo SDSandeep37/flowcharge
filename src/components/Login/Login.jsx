@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./login.css";
 import UserMessage from "../UserMessage/UserMessage";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -104,7 +105,7 @@ const Login = () => {
           </button>
           <div className="loginContent">
             <span>
-              Not yet register! Click Here <a href="#"> Register</a>
+              Not yet register! Click Here <Link to="/register"> Register</Link>
             </span>
           </div>
         </form>

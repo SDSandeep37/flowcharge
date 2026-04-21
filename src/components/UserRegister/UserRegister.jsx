@@ -1,6 +1,7 @@
 import "./userRegister.css";
 import { useState } from "react";
 import UserMessage from "../UserMessage/UserMessage";
+import { Link } from "react-router-dom";
 const UserRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -136,7 +137,7 @@ const UserRegister = () => {
           </button>
           <div className="registerContent">
             <span>
-              Already registered! Click Here <a href="#"> Login</a>
+              Already registered! Click Here <Link to="/login"> Login</Link>
             </span>
           </div>
         </form>
