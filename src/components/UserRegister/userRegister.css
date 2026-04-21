@@ -1,0 +1,112 @@
+.registerContainer {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.registerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  width: 80%;
+  height: 100%;
+  border: 1px solid var(--color-text);
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.logo img {
+  border: none;
+}
+.logo p {
+  letter-spacing: 1.3px;
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--color-success);
+}
+
+.registerForm {
+  background-color: var(--color-bg-secondary);
+  padding: 30px;
+  min-width: 340px;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  border-top-left-radius: 0;
+}
+.registerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+.registerContent input {
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  border-color: var(--color-bg);
+  width: 100%;
+  border-radius: 10px;
+}
+.registerContent label {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+.registerButton {
+  margin-top: 40px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  width: 80%;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+.registerButton:hover {
+  background-color: var(--color-text-secondary);
+  color: var(--color-bg);
+}
+.registerContent span {
+  font-size: 14px;
+}
+.registerContent span a {
+  color: var(--color-success);
+  font-family: cursive;
+}
+@media screen and (max-width: 1024px) {
+  .registerContainer {
+    height: unset;
+  }
+  .registerWrapper {
+    flex-direction: column;
+  }
+  .logo img {
+    border: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .registerForm {
+    min-width: unset;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .logo img {
+    width: 90%;
+  }
+  .logo p {
+    font-size: 14px;
+  }
+  .registerWrapper {
+    border: none;
+    padding: 0;
+  }
+}

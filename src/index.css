@@ -1,0 +1,66 @@
+:root {
+  /* Backgrounds */
+  --color-bg: #01011c; /* main background */
+  --color-bg-secondary: #1e1e1e; /* cards, panels */
+
+  /* Text */
+  --color-text: #e0e0e0; /* primary text */
+  --color-text-secondary: #b0b0b0; /* muted text */
+  --color-text-inverse: #ffffff; /* text on accent buttons */
+
+  /* Accents */
+  --color-primary: #4cafef; /* main accent (blue) */
+  --color-secondary: #ff9800; /* secondary accent (orange) */
+  --color-success: #4caf50; /* success green */
+  --color-error: #f44336; /* error red */
+  --color-warning: #ffeb3b; /* warning yellow */
+
+  /* Borders & Shadows */
+  --color-border: #2a2a2a;
+  --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.5);
+
+  /* Interactive States */
+  --color-hover: #2a2a2a;
+  --color-active: #333333;
+
+  /* Special UI Elements */
+  --color-card-bg: #1c1c1c;
+  --color-input-bg: #2a2a2a;
+  --color-input-border: #3a3a3a;
+
+  --transition: all ease-in-out 0.7s;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-inverse);
+}
+input {
+  padding: 10px 20px;
+  outline: none;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.success {
+  color: var(--color-success);
+}
+.error {
+  color: var(--color-error);
+}
+.usermessage {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
+  text-align: center;
+}
