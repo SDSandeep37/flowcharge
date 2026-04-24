@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./login.css";
 import UserMessage from "../UserMessage/UserMessage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [messageType, setMessageType] = useState("");
   const [message, setMessage] = useState("");
-
+  const navigate = useNavigate();
   const timer = () => {
     setTimeout(() => {
       setMessage("");
@@ -63,6 +63,7 @@ const Login = () => {
       }
       setMessageType("success");
       setMessage(result.message);
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login failed:", error);
       setMessageType("error");

@@ -1,0 +1,23 @@
+.dashNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-bg-secondary);
+  height: 60px;
+}
+.brandAndToggle {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
+.sidebarToggle {
+  padding: 0;
+  background: transparent;
+  color: var(--color-text);
+}
+.brand {
+  font-size: 24px;
+  font-weight: 500;
+}

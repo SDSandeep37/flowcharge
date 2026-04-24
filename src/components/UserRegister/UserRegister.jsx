@@ -1,7 +1,7 @@
 import "./userRegister.css";
 import { useState } from "react";
 import UserMessage from "../UserMessage/UserMessage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const UserRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,7 +9,7 @@ const UserRegister = () => {
   const [name, setName] = useState("");
   const [messageType, setMessageType] = useState("");
   const [message, setMessage] = useState("");
-
+  const navigate = useNavigate();
   const timer = () => {
     setTimeout(() => {
       setMessage("");
@@ -73,6 +73,7 @@ const UserRegister = () => {
       }
       setMessageType("success");
       setMessage(result.message);
+      navigate("/dashboard");
     } catch (error) {
       console.error("Register failed:", error);
       setMessageType("error");
