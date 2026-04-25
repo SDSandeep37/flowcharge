@@ -1,0 +1,40 @@
+.rdt_TableHeader {
+  background-color: var(--color-bg) !important;
+  color: var(--color-white) !important;
+}
+.rdt_Pagination {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text) !important;
+}
+.rdt_Table {
+  min-width: 600px !important;
+}
+.dashBoardTableContainer {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 20px;
+  overflow-x: auto !important;
+}
+
+.tableActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.tableActions button {
+  font-weight: 500;
+  border-radius: 4px;
+}
+.tableViewButton {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.tableEditButton {
+  background-color: var(--color-warning);
+  color: var(--color-bg);
+}
+.tableDeleteButton {
+  background-color: var(--color-error);
+  color: var(--color-text);
+}

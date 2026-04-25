@@ -5,6 +5,11 @@
   padding: 20px;
   background-color: var(--color-bg-secondary);
   height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 .brandAndToggle {
   display: flex;
@@ -20,4 +25,6 @@
 .brand {
   font-size: 24px;
   font-weight: 500;
+  letter-spacing: 1.4px;
+  font-family: cursive;
 }

@@ -1,4 +1,5 @@
 .sidebar {
+  min-width: 250px;
   width: 250px;
   min-height: 100vh;
   background-color: var(--color-bg-secondary);
@@ -49,6 +50,7 @@
   cursor: pointer;
   color: var(--color-text);
   transition: var(--transition);
+  letter-spacing: 1.4px;
 }
 .sidebarMenuListContainer li:hover {
   color: var(--color-primary);
@@ -75,9 +77,9 @@
 
 @media screen and (max-width: 1024px) {
   .sidebar {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     left: 0;
-    top: 0;
+    top: 60px;
   }
 }

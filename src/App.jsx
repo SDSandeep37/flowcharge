@@ -17,6 +17,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<UserRegisterPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+
           {/* Default Redirect */}
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>

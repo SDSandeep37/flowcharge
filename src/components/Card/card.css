@@ -1,0 +1,40 @@
+.cardContainer {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 5px -4px 6px rgba(255, 255, 255, 0.5);
+  width: 300px;
+  height: 200px;
+}
+.cardTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-warning);
+}
+.cardDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 1.4px;
+}
+.cardButton {
+  background-color: var(--color-bg);
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
