@@ -8,20 +8,29 @@ import LoginPage from "./pages/LoginPage"; //Since it is a defalut export it can
 import UserRegisterPage from "./pages/UserRegisterPage";
 import { UserAuthProvider } from "./Contexts/AuthContext";
 import DashboardPage from "./pages/DashboardPage";
-
+import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
+import { SidebarProvider } from "./Contexts/SidebarContext";
+import AdminUsers from "./pages/Admin/AdminUsers/AdminUsers";
+import AdminOwners from "./pages/Admin/AdminOwners/AdminOwners";
 const App = () => {
   return (
     <UserAuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<UserRegisterPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+      <SidebarProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<UserRegisterPage />} />
 
-          {/* Default Redirect */}
-          <Route path="/" element={<Navigate to="/login" />} />
-        </Routes>
-      </Router>
+            <Route element={<DashboardLayout />}>
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/admin/users" element={<AdminUsers />} />
+              <Route path="/admin/owners" element={<AdminOwners />} />
+            </Route>
+            {/* Default Redirect */}
+            <Route path="/" element={<Navigate to="/login" />} />
+          </Routes>
+        </Router>
+      </SidebarProvider>
     </UserAuthProvider>
   );
 };

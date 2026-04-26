@@ -3,7 +3,7 @@ import { UserAuthContext } from "../Contexts/AuthContext";
 import OwnerDashboardPage from "./OwnerDashboardPage";
 import ConsumerDashboardPage from "./ConsumerDashboardPage";
 import AdminDashboardPage from "./AdminDashboardPage";
-import { SidebarProvider } from "../Contexts/SidebarContext";
+
 const DashboardPage = () => {
   const { user, loading } = useContext(UserAuthContext);
   const role = user?.role;
@@ -45,11 +45,11 @@ const DashboardPage = () => {
     );
   }
   return (
-    <SidebarProvider>
+    <>
       {role === "owner" && <OwnerDashboardPage />}
       {role === "consumer" && <ConsumerDashboardPage />}
       {role === "admin" && <AdminDashboardPage />}
-    </SidebarProvider>
+    </>
   );
 };
 
