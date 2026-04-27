@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import DataTableComponent from "../DataTable/DataTable";
 
-const ApiTable = () => {
+const ApiTable = ({ userType }) => {
   const [data, setData] = useState([]);
-  const columns = [
+  const baseColumns = [
     {
       name: "Name",
       selector: (row) => row.name,
@@ -24,39 +24,39 @@ const ApiTable = () => {
       selector: (row) => row.owner_name,
       sortable: true,
     },
-
-    {
-      name: "Actions",
-      cell: (row) => (
-        <div className="tableActions">
-          <button
-            className="tableViewButton"
-            onClick={() => alert("This function is not available for now")}
-          >
-            View
-          </button>
-          <button
-            className="tableEditButton"
-            onClick={() => alert("This function is not available for now")}
-          >
-            Edit
-          </button>
-          <button
-            className="tableDeleteButton"
-            onClick={() => alert("This function is not available for now")}
-          >
-            Delete
-          </button>
-        </div>
-      ),
-    },
   ];
-
+  const actionsColumn = {
+    name: "Actions",
+    cell: (row) => (
+      <div className="tableActions">
+        <button
+          className="tableViewButton"
+          onClick={() => alert("This function is not available for now")}
+        >
+          View
+        </button>
+        <button
+          className="tableEditButton"
+          onClick={() => alert("This function is not available for now")}
+        >
+          Edit
+        </button>
+        <button
+          className="tableDeleteButton"
+          onClick={() => alert("This function is not available for now")}
+        >
+          Delete
+        </button>
+      </div>
+    ),
+  };
+  const columns =
+    userType === "consumer" ? baseColumns : [...baseColumns, actionsColumn];
   useEffect(() => {
-    getConsumerData();
+    getApisData();
   }, []);
-  const getConsumerData = async () => {
-    // Fetch consumer data from API and update state
+  const getApisData = async () => {
+    // Fetch apis data from API
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/apis`, {
         method: "GET",
@@ -71,8 +71,6 @@ const ApiTable = () => {
         const apis = data.apis;
         setData(apis);
       }
-
-      // console.log("API data fetched successfully:", apis);
     } catch (error) {
       console.error("Error fetching API data:", error);
     }

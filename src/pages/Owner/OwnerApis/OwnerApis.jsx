@@ -1,19 +1,19 @@
-import "./adminApis.css";
+import "./ownerApis.css";
 import ApiRegistrationForm from "../../../components/ApiRegistrationForm/ApiRegistrationForm";
 import ApiTable from "../../../components/ApiTable/ApiTable";
 
-const AdminApis = () => {
+const OwnerApis = () => {
   return (
-    <div className="adminApisContainer">
-      <div className="adminApisRegistration">
+    <div className="ownerApisContainer">
+      <div className="ownerApisRegistration">
         <h2>Register New API</h2>
-        <ApiRegistrationForm userType="admin" />
+        <ApiRegistrationForm userType="owner" />
       </div>
       <div className="dashBoardTableContainer">
-        <ApiTable userType="admin" />
+        <ApiTable userType="owner" />
       </div>
     </div>
   );
 };
 
-export default AdminApis;
+export default OwnerApis;

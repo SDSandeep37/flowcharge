@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserMessage from "../UserMessage/UserMessage";
 
-const ApiRegistrationForm = () => {
+const ApiRegistrationForm = ({ userType }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [baseUrl, setBaseUrl] = useState("");
@@ -9,11 +9,13 @@ const ApiRegistrationForm = () => {
   const [message, setMessage] = useState("");
   const [owners, setOwners] = useState([]);
   const [selectedOwner, setSelectedOwner] = useState("");
-  // get all the owners to show in the dropdown
-  useEffect(() => {
-    getOwners();
-  }, []);
 
+  // get all the owners to show in the dropdown
+  if (userType === "admin") {
+    useEffect(() => {
+      getOwners();
+    }, []);
+  }
   const getOwners = async () => {
     try {
       const response = await fetch(
@@ -32,6 +34,7 @@ const ApiRegistrationForm = () => {
       console.error("Failed to fetch owners:", error);
     }
   };
+
   const timer = () => {
     setTimeout(() => {
       setMessage("");
@@ -61,11 +64,16 @@ const ApiRegistrationForm = () => {
         setMessage("Please enter the API base URL");
         return;
       }
-      if (!selectedOwner) {
+      if (userType === "admin" && !selectedOwner) {
         setMessageType("error");
         setMessage("Please select an owner for this API");
         return;
       }
+      // if (!selectedOwner) {
+      //   setMessageType("error");
+      //   setMessage("Please select an owner for this API");
+      //   return;
+      // }
       handleApiCall();
     } catch (error) {
       console.log(error);
@@ -141,22 +149,25 @@ const ApiRegistrationForm = () => {
           value={baseUrl}
         />
       </div>
-      <div className="registerContent">
-        <label htmlFor="owner">Owner</label>
-        <select
-          name="owner"
-          id="owner"
-          onChange={(event) => setSelectedOwner(event.target.value)}
-          value={selectedOwner}
-        >
-          <option value="">Select an owner</option>
-          {owners.map((owner) => (
-            <option key={owner.id} value={owner.id}>
-              {owner.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      {userType === "admin" && (
+        <div className="registerContent">
+          <label htmlFor="owner">Owner</label>
+          <select
+            name="owner"
+            id="owner"
+            onChange={(event) => setSelectedOwner(event.target.value)}
+            value={selectedOwner}
+          >
+            <option value="">Select an owner</option>
+            {owners.map((owner) => (
+              <option key={owner.id} value={owner.id}>
+                {owner.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <UserMessage type={messageType} message={message} />
       <button className="registerButton" onClick={handleRegister}>
         Register

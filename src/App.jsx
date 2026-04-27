@@ -13,6 +13,8 @@ import { SidebarProvider } from "./Contexts/SidebarContext";
 import AdminUsers from "./pages/Admin/AdminUsers/AdminUsers";
 import AdminOwners from "./pages/Admin/AdminOwners/AdminOwners";
 import AdminApis from "./pages/Admin/AdminApis/AdminApis";
+import OwnerApis from "./pages/Owner/OwnerApis/OwnerApis";
+import ConsumerApis from "./pages/Consumer/ConsumerApis/ConsumerApis";
 const App = () => {
   return (
     <UserAuthProvider>
@@ -27,6 +29,8 @@ const App = () => {
               <Route path="/admin/users" element={<AdminUsers />} />
               <Route path="/admin/owners" element={<AdminOwners />} />
               <Route path="/admin/apis" element={<AdminApis />} />
+              <Route path="/owner/apis" element={<OwnerApis />} />
+              <Route path="/consumer/apis" element={<ConsumerApis />} />
             </Route>
             {/* Default Redirect */}
             <Route path="/" element={<Navigate to="/login" />} />
