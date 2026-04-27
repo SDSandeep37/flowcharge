@@ -3,7 +3,7 @@ import { FaUsers } from "react-icons/fa";
 import { HiOutlineUsers } from "react-icons/hi";
 import { CiSettings, CiLogout } from "react-icons/ci";
 import { ImProfile } from "react-icons/im";
-
+import { AiOutlineApi } from "react-icons/ai";
 export const adminMenu = [
   {
     key: "dashboard",
@@ -17,6 +17,12 @@ export const adminMenu = [
     label: "Owners",
     icon: <HiOutlineUsers />,
     path: "/admin/owners",
+  },
+  {
+    key: "apis",
+    label: "APIs",
+    icon: <AiOutlineApi />,
+    path: "/admin/apis",
   },
   {
     key: "settings",
@@ -69,6 +75,12 @@ export const ownerMenu = [
     path: "/dashboard",
   },
   { key: "users", label: "Users", icon: <FaUsers />, path: "/owner/users" },
+  {
+    key: "apis",
+    label: "APIs",
+    icon: <AiOutlineApi />,
+    path: "/owner/apis",
+  },
   {
     key: "settings",
     label: "Settings",

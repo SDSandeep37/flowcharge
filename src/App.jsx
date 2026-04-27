@@ -12,6 +12,7 @@ import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 import { SidebarProvider } from "./Contexts/SidebarContext";
 import AdminUsers from "./pages/Admin/AdminUsers/AdminUsers";
 import AdminOwners from "./pages/Admin/AdminOwners/AdminOwners";
+import AdminApis from "./pages/Admin/AdminApis/AdminApis";
 const App = () => {
   return (
     <UserAuthProvider>
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/admin/users" element={<AdminUsers />} />
               <Route path="/admin/owners" element={<AdminOwners />} />
+              <Route path="/admin/apis" element={<AdminApis />} />
             </Route>
             {/* Default Redirect */}
             <Route path="/" element={<Navigate to="/login" />} />

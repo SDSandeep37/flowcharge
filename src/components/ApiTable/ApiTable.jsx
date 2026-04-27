@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DataTableComponent from "../DataTable/DataTable";
 
-const ConsumerTable = () => {
+const ApiTable = () => {
   const [data, setData] = useState([]);
   const columns = [
     {
@@ -10,8 +10,18 @@ const ConsumerTable = () => {
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Description",
+      selector: (row) => row.description,
+      sortable: true,
+    },
+    {
+      name: "Base URL",
+      selector: (row) => row.base_url,
+      sortable: true,
+    },
+    {
+      name: "Owner",
+      selector: (row) => row.owner_name,
       sortable: true,
     },
 
@@ -48,28 +58,26 @@ const ConsumerTable = () => {
   const getConsumerData = async () => {
     // Fetch consumer data from API and update state
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/users/consumers`,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-        },
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/apis`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
       if (!response.ok) {
-        throw new Error("Failed to fetch consumer data");
+        throw new Error("Failed to fetch API data");
       }
       const data = await response.json();
-      const consumers = data.consumers;
-      setData(consumers);
-      // console.log("Consumer data fetched successfully:", consumers);
+      if (data.success) {
+        const apis = data.apis;
+        setData(apis);
+      }
+
+      // console.log("API data fetched successfully:", apis);
     } catch (error) {
-      console.error("Error fetching consumer data:", error);
+      console.error("Error fetching API data:", error);
     }
   };
-  return (
-    <DataTableComponent title="Consumer List" columns={columns} data={data} />
-  );
+  return <DataTableComponent title="API List" columns={columns} data={data} />;
 };
 
-export default ConsumerTable;
+export default ApiTable;
