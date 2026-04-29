@@ -1,11 +1,10 @@
-import ApiTable from "../../../components/ApiTable/ApiTable";
+import ApiCards from "../../../components/ApiCards/ApiCards";
 import "./consumerApis.css";
 const ConsumerApis = () => {
   return (
     <div className="consumerApisContainer">
-      <div className="dashBoardTableContainer">
-        <ApiTable userType="consumer" />
-      </div>
+      <h1>All Available APIs</h1>
+      <ApiCards />
     </div>
   );
 };

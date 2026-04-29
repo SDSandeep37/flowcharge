@@ -14,6 +14,8 @@ const DataTableComponent = ({ columns, title, data }) => {
       style: {
         backgroundColor: "var(--color-bg-secondary)",
         color: "var(--color-text)",
+        paddingTop: "12px",
+        paddingBottom: "12px",
       },
       highlightOnHoverStyle: {
         backgroundColor: "var(--color-bg)",

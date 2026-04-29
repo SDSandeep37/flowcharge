@@ -1,0 +1,63 @@
+.apiCard {
+  background-color: var(--color-bg-secondary);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 380px;
+}
+.apiCardName {
+  color: var(--color-primary);
+  font-weight: 300;
+  font-size: 20px;
+  font-family: cursive;
+  text-align: center;
+}
+.apiCardDescription {
+  font-size: 14px;
+  font-family: cursive;
+  letter-spacing: 1.3px;
+  text-align: center;
+}
+.apiCardButton {
+  background-color: var(--color-primary);
+  border-radius: 20px;
+  color: var(--color-text);
+  font-weight: 700;
+  align-self: flex-start;
+}
+.showApikey {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.showApikey label {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+.showApikey input {
+  width: 95%;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  outline: none;
+  border: 1px solid var(--color-primary);
+  text-align: center;
+}
+.eyeButton {
+  position: absolute;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  right: -10px;
+  top: 24px;
+}
+@media screen and (max-width: 540px) {
+  .apiCard {
+    width: 100%;
+  }
+}

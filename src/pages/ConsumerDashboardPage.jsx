@@ -22,7 +22,7 @@ const ConsumerDashboardPage = () => {
         />
       </div>
       <div className="dashBoardTableContainer">
-        <ApiTable />
+        <ApiTable userType="consumer" />
       </div>
     </>
   );

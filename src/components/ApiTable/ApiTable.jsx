@@ -13,6 +13,7 @@ const ApiTable = ({ userType }) => {
       name: "Description",
       selector: (row) => row.description,
       sortable: true,
+      wrap: true,
     },
     {
       name: "Base URL",

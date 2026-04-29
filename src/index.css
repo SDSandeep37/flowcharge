@@ -76,6 +76,7 @@ button {
   padding: 20px;
   text-align: center;
 }
+
 @media screen and (max-width: 1024px) {
   .sidebarContainer {
     position: relative;
