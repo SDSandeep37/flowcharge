@@ -1,0 +1,37 @@
+.billingDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.billingDetailsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+  width: 340px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 6px 9px #373030;
+}
+.billingDetailsCard h3 {
+  color: var(--color-primary);
+  font-family: cursive;
+}
+.billingDetailsCard p {
+  font-family: cursive;
+  letter-spacing: 1.3px;
+  color: var(--color-error);
+}
+.billingDetailsCard p span {
+  color: var(--color-warning);
+}
+.billStatus {
+  text-transform: uppercase;
+}
+.paynow {
+  border-radius: 10px;
+  background-color: var(--color-success);
+  color: var(--color-text);
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./apicards.css";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const ApiCards = () => {
   const [data, setData] = useState([]);
   const [loadingApiId, setLoadingApiId] = useState(null);
@@ -75,7 +76,6 @@ const ApiCards = () => {
               <div className="apiCard" key={api.id}>
                 <h2 className="apiCardName">{api.name}</h2>
                 <p className="apiCardDescription">{api.description}</p>
-
                 {api.user_id === null ? (
                   <button
                     className="apiCardButton"
@@ -110,6 +110,13 @@ const ApiCards = () => {
                       )} */}
                       {visibleKeys[api.id] ? <IoMdEyeOff /> : <IoEye />}
                     </button>
+                    <div className="apiDetails">
+                      <Link to={`/consumer/api/detail/${api.id}`}>
+                        <button className="apiDetailButton">
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

@@ -56,6 +56,11 @@
   right: -10px;
   top: 24px;
 }
+.apiDetailButton {
+  border-radius: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
 @media screen and (max-width: 540px) {
   .apiCard {
     width: 100%;

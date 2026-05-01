@@ -15,6 +15,7 @@ import AdminOwners from "./pages/Admin/AdminOwners/AdminOwners";
 import AdminApis from "./pages/Admin/AdminApis/AdminApis";
 import OwnerApis from "./pages/Owner/OwnerApis/OwnerApis";
 import ConsumerApis from "./pages/Consumer/ConsumerApis/ConsumerApis";
+import ConsumerApiDetail from "./pages/Consumer/ConsumerApiDetail/ConsumerApiDetail";
 const App = () => {
   return (
     <UserAuthProvider>
@@ -31,6 +32,10 @@ const App = () => {
               <Route path="/admin/apis" element={<AdminApis />} />
               <Route path="/owner/apis" element={<OwnerApis />} />
               <Route path="/consumer/apis" element={<ConsumerApis />} />
+              <Route
+                path="/consumer/api/detail/:id"
+                element={<ConsumerApiDetail />}
+              />
             </Route>
             {/* Default Redirect */}
             <Route path="/" element={<Navigate to="/login" />} />
