@@ -16,6 +16,8 @@ import AdminApis from "./pages/Admin/AdminApis/AdminApis";
 import OwnerApis from "./pages/Owner/OwnerApis/OwnerApis";
 import ConsumerApis from "./pages/Consumer/ConsumerApis/ConsumerApis";
 import ConsumerApiDetail from "./pages/Consumer/ConsumerApiDetail/ConsumerApiDetail";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 const App = () => {
   return (
     <UserAuthProvider>
@@ -24,6 +26,8 @@ const App = () => {
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<UserRegisterPage />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
 
             <Route element={<DashboardLayout />}>
               <Route path="/dashboard" element={<DashboardPage />} />

@@ -56,6 +56,33 @@ const Billing = ({ id }) => {
   //   },
   // ];
   console.log(billingData);
+  const handlePayment = async (billingId) => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/payment/create-checkout-session`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ billingId }),
+        },
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Payment failed");
+      }
+
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } catch (error) {
+      console.error("Payment error:", error);
+      alert(error.message);
+    }
+  };
   return (
     <div className="billingDetails">
       {/* <div className="billingDetailsTable">
@@ -91,7 +118,12 @@ const Billing = ({ id }) => {
         </div>
         <div className="billingButtons">
           {billingData.status === "pending" ? (
-            <button className="paynow">Pay Now</button>
+            <button
+              className="paynow"
+              onClick={() => handlePayment(billingData.id)}
+            >
+              Pay Now
+            </button>
           ) : (
             <button className="paid">Paid</button>
           )}
