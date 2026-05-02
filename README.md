@@ -1,16 +1,70 @@
-# React + Vite
+# FlowCharge Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite frontend for the FlowCharge API marketplace and billing system.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+The app usually runs at `http://localhost:5173`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Environment
 
-## Expanding the ESLint configuration
+Create `flowcharge/.env`:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```env
+VITE_API_URL=http://localhost:5000/flowcharge
+```
+
+For deployment, set `VITE_API_URL` to the deployed backend base path, for example:
+
+```env
+VITE_API_URL=https://flowcharge-backend.onrender.com/flowcharge
+```
+
+## Scripts
+
+```bash
+npm run dev       # local development
+npm run build     # production build
+npm run preview   # preview production build
+npm run lint      # eslint
+```
+
+## Main Routes
+
+| Route | Description |
+| --- | --- |
+| `/login` | Login page |
+| `/register` | Consumer registration |
+| `/dashboard` | Role-aware dashboard |
+| `/admin/users` | Admin user management |
+| `/admin/owners` | Admin owner management |
+| `/admin/apis` | Admin API management |
+| `/owner/apis` | Owner API management |
+| `/consumer/apis` | Consumer API marketplace |
+| `/consumer/api/detail/:id` | Usage logs and billing for a subscribed API |
+| `/success` | Stripe payment success |
+| `/cancel` | Stripe payment cancel |
+
+## Frontend Flow
+
+1. On app load, `AuthContext` calls `/users/session` with cookies included.
+2. The dashboard layout renders role-specific navigation.
+3. Admins can view consumers, owners, and APIs.
+4. Owners can register APIs.
+5. Consumers browse APIs and create API keys.
+6. Consumers view API usage logs and billing.
+7. Pending bills redirect to Stripe Checkout through the backend payment route.
+
+## Important Files
+
+- `src/App.jsx`: route definitions.
+- `src/Contexts/AuthContext.jsx`: current user session state.
+- `src/Configs/dashboardMenuConfig.jsx`: role-based sidebar items.
+- `src/components/ApiCards/ApiCards.jsx`: consumer API marketplace cards.
+- `src/components/Billing/Billing.jsx`: billing details and payment button.
+- `src/pages/Consumer/ConsumerApiDetail/ConsumerApiDetail.jsx`: usage logs and billing page.
