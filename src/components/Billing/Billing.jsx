@@ -3,6 +3,7 @@ import DataTableComponent from "../DataTable/DataTable";
 import "./billing.css";
 const Billing = ({ id }) => {
   const [billingData, setBillingData] = useState({});
+  const [processing, setProcessing] = useState(false);
   useEffect(() => {
     getBillingData();
   }, []);
@@ -58,6 +59,7 @@ const Billing = ({ id }) => {
   console.log(billingData);
   const handlePayment = async (billingId) => {
     try {
+      setProcessing(true);
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/payment/create-checkout-session`,
         {
@@ -74,6 +76,7 @@ const Billing = ({ id }) => {
 
       if (!res.ok) {
         throw new Error(data.message || "Payment failed");
+        setProcessing(false);
       }
 
       // Redirect to Stripe Checkout
@@ -81,6 +84,7 @@ const Billing = ({ id }) => {
     } catch (error) {
       console.error("Payment error:", error);
       alert(error.message);
+      setProcessing(false);
     }
   };
   return (
@@ -122,7 +126,7 @@ const Billing = ({ id }) => {
               className="paynow"
               onClick={() => handlePayment(billingData.id)}
             >
-              Pay Now
+              {processing ? "Processing" : "Pay Now"}
             </button>
           ) : (
             <button className="paid">Paid</button>
